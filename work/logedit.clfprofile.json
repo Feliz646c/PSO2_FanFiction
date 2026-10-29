@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "profile_name": "",
+  "input": {
+    "file": "D:/PSO2_FanFiction/work/20260911ログ原本.txt",
+    "encoding": "auto",
+    "encoding_fallback_errors": "replace",
+    "timestamp_formats": [
+      "%Y-%m-%dT%H:%M:%S",
+      "%Y-%m-%d %H:%M:%S",
+      "%Y/%m/%d %H:%M:%S",
+      "%Y%m%d%H%M%S"
+    ]
+  },
+  "pipeline": {
+    "message_stage_order": [
+      "replace",
+      "style"
+    ],
+    "color_commands": {
+      "enabled": true,
+      "mapping": {
+        "red": "#FF0000",
+        "blk": "#000000",
+        "pur": "#800080",
+        "bei": "#F5F5DC",
+        "ora": "#FFA500",
+        "gra": "#808080",
+        "gre": "#008000",
+        "yel": "#FFFF00",
+        "whi": "#FFFFFF",
+        "vio": "#8A2BE2",
+        "blu": "#0000FF",
+        "def": null
+      }
+    },
+    "pso2_commands": {
+      "enabled": true,
+      "cutin": {
+        "enabled": true,
+        "mode": "remove"
+      },
+      "gaze": {
+        "enabled": true,
+        "mode": "label"
+      },
+      "gaze_stop": {
+        "enabled": true,
+        "mode": "label"
+      },
+      "manga_symbol": {
+        "enabled": true,
+        "mode": "remove"
+      },
+      "lobby_action": {
+        "enabled": true,
+        "mode": "label"
+      },
+      "lobby_action_table_path": "D:/Development/PSO2LogEditer/samples/pso2_lobby_action_table.json",
+      "speech_bubble": {
+        "enabled": true,
+        "toge_style": {
+          "bold": true
+        },
+        "moya_style": {
+          "italic": true,
+          "color": "#888888"
+        }
+      }
+    }
+  },
+  "rules": [
+    {
+      "id": "rule-0001",
+      "type": "filter",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "chat_type": [
+          "GUILD",
+          "PARTY",
+          "REPLY"
+        ]
+      },
+      "action": {
+        "mode": "exclude"
+      }
+    },
+    {
+      "id": "rule-0003",
+      "type": "message_only",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "original",
+      "match": {
+        "player_id": "11762806",
+        "speaker": "ナレーション",
+        "chat_type": [
+          "GROUP"
+        ],
+        "message_pattern": "^(#|/toge #|/moya #)",
+        "message_flags": []
+      },
+      "action": {}
+    },
+    {
+      "id": "rule-0005",
+      "type": "message_style",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "original",
+      "match": {
+        "player_id": "11762806",
+        "speaker": "ナレーション",
+        "chat_type": [
+          "GROUP"
+        ],
+        "message_pattern": ".*",
+        "message_flags": []
+      },
+      "action": {
+        "style": {
+          "underline": true
+        },
+        "apply_to": [
+          "message"
+        ],
+        "all_occurrences": true
+      }
+    },
+    {
+      "id": "rule-0002",
+      "type": "name_replace",
+      "comment": "",
+      "enabled": false,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "player_id": "14599386",
+        "speaker": "マケ"
+      },
+      "action": {
+        "to": "メリエル",
+        "mode": "full"
+      }
+    },
+    {
+      "id": "rule-0008",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "白黒"
+      },
+      "action": {
+        "style": {
+          "color": "#778899"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0006",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "タチカゼ"
+      },
+      "action": {
+        "style": {
+          "color": "#80FF80"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0004",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "メリエル"
+      },
+      "action": {
+        "style": {
+          "color": "#778899"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0009",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ソフィエナ"
+      },
+      "action": {
+        "style": {
+          "color": "#9075b3"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0010",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "リニエ"
+      },
+      "action": {
+        "style": {
+          "color": "#FF00FF"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0011",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "kurokin"
+      },
+      "action": {
+        "style": {
+          "color": "#ebcc00"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0028",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "クロキン"
+      },
+      "action": {
+        "style": {
+          "color": "#ebcc00"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0012",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "クロード"
+      },
+      "action": {
+        "style": {
+          "color": "#FF0000"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0013",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ロア"
+      },
+      "action": {
+        "style": {
+          "color": "#8000FF"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0007",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ロシェ"
+      },
+      "action": {
+        "style": {
+          "color": "#584FB0"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0014",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ラル"
+      },
+      "action": {
+        "style": {
+          "color": "#A8CF30"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0015",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "カルミア"
+      },
+      "action": {
+        "style": {
+          "color": "#ff69b4"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0016",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "サヤ"
+      },
+      "action": {
+        "style": {
+          "color": "#db7093"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0017",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "アロナ・セミナレム"
+      },
+      "action": {
+        "style": {
+          "color": "#3cb371"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0018",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "鬼灯・S・武蔵"
+      },
+      "action": {
+        "style": {
+          "color": "#963c73"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0019",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ナイン"
+      },
+      "action": {
+        "style": {
+          "color": "#b82e4a"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0020",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "縁"
+      },
+      "action": {
+        "style": {
+          "color": "#6a4a9c"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0021",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "シュナイア"
+      },
+      "action": {
+        "style": {
+          "color": "#EE9B11"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0022",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "レイヴン"
+      },
+      "action": {
+        "style": {
+          "color": "#400000"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0023",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "ユーニ"
+      },
+      "action": {
+        "style": {
+          "color": "#004080"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0024",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "リーセリア"
+      },
+      "action": {
+        "style": {
+          "color": "#000080"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0029",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "アリカ"
+      },
+      "action": {
+        "style": {
+          "color": "#000080"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0025",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "実験体-08"
+      },
+      "action": {
+        "style": {
+          "color": "#808080"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0026",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "実験体-09"
+      },
+      "action": {
+        "style": {
+          "color": "#707070"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    },
+    {
+      "id": "rule-0027",
+      "type": "name_color",
+      "comment": "",
+      "enabled": true,
+      "stop_on_match": false,
+      "match_against": "current",
+      "match": {
+        "speaker": "デイメア"
+      },
+      "action": {
+        "style": {
+          "color": "#FF6C6C"
+        },
+        "apply_to": [
+          "speaker"
+        ]
+      }
+    }
+  ],
+  "output": {
+    "line_template": "{speaker} ：{message}",
+    "timestamp_output_format": "%H:%M",
+    "field_styles": {
+      "timestamp": null,
+      "chat_type": null,
+      "seq": null,
+      "player_id": null,
+      "speaker": {
+        "bold": true
+      },
+      "message": null
+    },
+    "base_style": {
+      "font_size_pt": 12.0
+    },
+    "paragraph": {
+      "line_spacing": 1.15,
+      "space_after_pt": 0.0,
+      "insert_date_headings": false,
+      "blank_line_between_speakers": true
+    },
+    "targets": {
+      "html_file": {
+        "enabled": false,
+        "path": ""
+      },
+      "clipboard": {
+        "enabled": true,
+        "path": ""
+      },
+      "plaintext": {
+        "enabled": false,
+        "path": "",
+        "bom": false
+      }
+    }
+  }
+}
